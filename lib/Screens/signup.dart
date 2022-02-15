@@ -76,7 +76,7 @@ class _SignUpState extends State<SignUp> {
                           keyboardType: TextInputType.name,
                           validator: (value) {
                             if (value!.isEmpty)
-                              return 'This Field is Required';
+                              return 'Name is Required';
                             else
                               return null;
                           },
@@ -225,7 +225,7 @@ class _SignUpState extends State<SignUp> {
                               )),
                           keyboardType: TextInputType.visiblePassword,
                           validator: (value) {
-                            if (value!.length >= 8)
+                            if (value!.length <= 8)
                               return 'Password should be at least 8 Characters';
                             else
                               return null;
@@ -270,8 +270,8 @@ class _SignUpState extends State<SignUp> {
                               )),
                           keyboardType: TextInputType.visiblePassword,
                           validator: (value) {
-                            if (value!.length >= 8)
-                              return 'Confirm Password should be at least 8 Characters';
+                            if (value!.length <= 8)
+                              return 'Password should be at least 8 Characters';
                             else
                               return null;
                           },

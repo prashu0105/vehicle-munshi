@@ -9,4 +9,31 @@ class MunshiStyle {
       color: Colors.white,
     );
   }
+
+  style28blackw600() {
+    // ignore: prefer_const_constructors
+    return TextStyle(
+      fontWeight: FontWeight.w600,
+      fontSize: 28,
+      color: Colors.black,
+    );
+  }
+
+  style24blackw600() {
+    // ignore: prefer_const_constructors
+    return TextStyle(
+      fontWeight: FontWeight.w600,
+      fontSize: 24,
+      color: Colors.black,
+    );
+  }
+
+  style20blackw600() {
+    // ignore: prefer_const_constructors
+    return TextStyle(
+      fontWeight: FontWeight.w600,
+      fontSize: 20,
+      color: Colors.black,
+    );
+  }
 }

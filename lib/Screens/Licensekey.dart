@@ -1,54 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_master/Comman%20components/TextStyle.dart';
 import 'package:vehicle_master/Comman%20components/colors.dart';
-import 'package:vehicle_master/Screens/Licensekey.dart';
-import 'package:vehicle_master/Screens/login.dart';
+import 'package:vehicle_master/Screens/Home.dart';
+import 'package:vehicle_master/Screens/OTP.dart';
 
-class OTP extends StatefulWidget {
-  OTP({Key? key}) : super(key: key);
+class LicenceKey extends StatefulWidget {
+  LicenceKey({Key? key}) : super(key: key);
 
   @override
-  State<OTP> createState() => _OTPState();
+  State<LicenceKey> createState() => _LicenceKeyState();
 }
 
-class _OTPState extends State<OTP> {
+class _LicenceKeyState extends State<LicenceKey> {
   var h, w;
-  var _formKey = GlobalKey<FormState>();
-  TextEditingController otp_controller = new TextEditingController();
+  TextEditingController key_controller = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     h = MediaQuery.of(context).size.height;
     w = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Login()));
-          },
-        ),
-        backgroundColor: MunshiColor().munshiBlue,
-        centerTitle: true,
-        title: Text('Verify OTP'),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(25),
+    var _formKey = GlobalKey<FormState>();
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => OTP()));
+            },
+          ),
+          backgroundColor: MunshiColor().munshiBlue,
+          centerTitle: true,
+          title: Text('Verify OTP'),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(25),
+            ),
           ),
         ),
-      ),
-      body: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
+        body: Form(
+          key: _formKey,
           child: Container(
-            color: MunshiColor().munshiWhite,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                     margin: EdgeInsets.only(top: h * 0.02, left: w * 0.08),
                     child: Text(
-                      "Enter OTP",
+                      "Enter Licence Key",
                       style: MunshiStyle().style28blackw600(),
                     )),
                 Padding(
@@ -70,14 +68,14 @@ class _OTPState extends State<OTP> {
                         margin:
                             EdgeInsets.only(left: w * 0.03, right: w * 0.03),
                         child: TextFormField(
-                          controller: otp_controller,
+                          controller: key_controller,
                           decoration: InputDecoration(
-                            hintText: "Enter OTP",
+                            hintText: "Enter Licence key",
                           ),
-                          keyboardType: TextInputType.phone,
+                          keyboardType: TextInputType.number,
                           validator: (value) {
-                            if (value!.length != 4)
-                              return 'OTP must be of 4 digit';
+                            if (value!.length != 10)
+                              return 'Licence key must be of 10 digit';
                             else
                               return null;
                           },
@@ -90,10 +88,8 @@ class _OTPState extends State<OTP> {
                   child: InkWell(
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LicenceKey()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Home()));
                       }
                     },
                     child: Container(
@@ -106,7 +102,30 @@ class _OTPState extends State<OTP> {
                       ),
                       child: Center(
                         child: Text(
-                          "Verify",
+                          "Submits",
+                          style: MunshiStyle().style24whitew600(),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Center(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Home()));
+                    },
+                    child: Container(
+                      height: h * 0.06,
+                      width: w * 0.8,
+                      margin: EdgeInsets.only(top: h * 0.05),
+                      decoration: BoxDecoration(
+                        color: MunshiColor().munshiBlue,
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Login Without Licence",
                           style: MunshiStyle().style24whitew600(),
                         ),
                       ),
