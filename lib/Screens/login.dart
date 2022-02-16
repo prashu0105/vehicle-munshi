@@ -122,7 +122,8 @@ class _LoginState extends State<Login> {
                               TextSpan(
                                   text: ' Sign up',
                                   style: TextStyle(
-                                      color: Colors.blueAccent, fontSize: 20),
+                                      color: MunshiColor().munshiBlue,
+                                      fontSize: 20),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
                                       Navigator.push(

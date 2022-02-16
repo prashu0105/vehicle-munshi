@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vehicle_master/Comman%20components/TextStyle.dart';
 import 'package:vehicle_master/Comman%20components/colors.dart';
+import 'package:vehicle_master/Screens/FAQs.dart';
+import 'package:vehicle_master/Screens/Home.dart';
+import 'package:vehicle_master/Screens/login.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,11 +14,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var h, w;
   @override
   Widget build(BuildContext context) {
-    h = MediaQuery.of(context).size.height;
-    w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         drawer: NavigationDrawerWidget(context),
@@ -44,17 +46,25 @@ class _HomePageState extends State<HomePage> {
                           height: h * 0.1,
                           width: w,
                           color: Colors.red,
+                          child: Image.asset(
+                            "assets/images/Slide1.jpg",
+                            fit: BoxFit.fill,
+                          ),
                         ),
                         Container(
                           height: h * 0.1,
                           width: w,
                           color: Colors.blue,
+                          child: Image.asset(
+                            "assets/images/Slide2.jpg",
+                            fit: BoxFit.fill,
+                          ),
                         ),
-                        Container(
-                          height: h * 0.1,
-                          width: w,
-                          color: Colors.green,
-                        ),
+                        // Container(
+                        //   height: h * 0.1,
+                        //   width: w,
+                        //   color: Colors.green,
+                        // ),
                       ],
                       options: CarouselOptions(
                         autoPlay: true,
@@ -84,6 +94,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.only(top: h * 0.02),
                                 child: Icon(
                                   Icons.car_rental,
+                                  color: Colors.orange,
                                   size: 40,
                                 ),
                               ),
@@ -110,6 +121,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.only(top: h * 0.02),
                                 child: Icon(
                                   Icons.car_repair,
+                                  color: Colors.blueAccent,
                                   size: 40,
                                 ),
                               ),
@@ -143,6 +155,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.only(top: h * 0.02),
                                 child: Icon(
                                   Icons.details_outlined,
+                                  color: Colors.greenAccent,
                                   size: 40,
                                 ),
                               ),
@@ -169,6 +182,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.only(top: h * 0.02),
                                 child: Icon(
                                   Icons.stars,
+                                  color: Colors.redAccent,
                                   size: 40,
                                 ),
                               ),
@@ -209,6 +223,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.only(top: h * 0.02),
                                 child: Icon(
                                   Icons.security_rounded,
+                                  color: Colors.amber,
                                   size: 40,
                                 ),
                               ),
@@ -235,6 +250,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.only(top: h * 0.02),
                                 child: Icon(
                                   Icons.info,
+                                  color: Colors.red,
                                   size: 40,
                                 ),
                               ),
@@ -268,6 +284,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.only(top: h * 0.02),
                                 child: Icon(
                                   Icons.perm_scan_wifi_outlined,
+                                  color: Colors.purpleAccent,
                                   size: 40,
                                 ),
                               ),
@@ -294,6 +311,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.only(top: h * 0.02),
                                 child: Icon(
                                   Icons.password_outlined,
+                                  color: Colors.green,
                                   size: 40,
                                 ),
                               ),
@@ -334,6 +352,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.only(top: h * 0.02),
                                 child: Icon(
                                   Icons.check_box_outlined,
+                                  color: Colors.indigoAccent,
                                   size: 40,
                                 ),
                               ),
@@ -360,6 +379,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.only(top: h * 0.02),
                                 child: Icon(
                                   Icons.info,
+                                  color: Colors.orange,
                                   size: 40,
                                 ),
                               ),
@@ -393,6 +413,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.only(top: h * 0.02),
                                 child: Icon(
                                   Icons.message_outlined,
+                                  color: Colors.lime,
                                   size: 40,
                                 ),
                               ),
@@ -506,7 +527,10 @@ Widget NavigationDrawerWidget(context) {
             "Home",
             style: MunshiStyle().style20blackw600(),
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Home()));
+          },
         ),
         ListTile(
           leading: Icon(
@@ -528,7 +552,10 @@ Widget NavigationDrawerWidget(context) {
             "FAQs",
             style: MunshiStyle().style20blackw600(),
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => FAQ()));
+          },
         ),
         ListTile(
           leading: Icon(
@@ -561,7 +588,10 @@ Widget NavigationDrawerWidget(context) {
             "Logout",
             style: MunshiStyle().style20blackw600(),
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Login()));
+          },
         ),
       ],
     ),

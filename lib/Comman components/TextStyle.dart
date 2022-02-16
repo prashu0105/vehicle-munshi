@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle_master/Comman%20components/colors.dart';
 
 class MunshiStyle {
   style24whitew600() {
@@ -43,6 +44,24 @@ class MunshiStyle {
       fontWeight: FontWeight.w400,
       fontSize: 16,
       color: Colors.white,
+    );
+  }
+
+  style16bluew400() {
+    // ignore: prefer_const_constructors
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: 16,
+      color: MunshiColor().munshiBlue,
+    );
+  }
+
+  style16blackw400() {
+    // ignore: prefer_const_constructors
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: 16,
+      color: MunshiColor().munshiBlack,
     );
   }
 }
