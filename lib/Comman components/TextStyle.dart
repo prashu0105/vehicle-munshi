@@ -36,4 +36,13 @@ class MunshiStyle {
       color: Colors.black,
     );
   }
+
+  style16whitew400() {
+    // ignore: prefer_const_constructors
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: 16,
+      color: Colors.white,
+    );
+  }
 }

@@ -13,12 +13,13 @@ class LicenceKey extends StatefulWidget {
 
 class _LicenceKeyState extends State<LicenceKey> {
   var h, w;
-  TextEditingController key_controller = new TextEditingController();
+  var _formKey = GlobalKey<FormState>();
+  TextEditingController licence_controller = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     h = MediaQuery.of(context).size.height;
     w = MediaQuery.of(context).size.width;
-    var _formKey = GlobalKey<FormState>();
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -68,7 +69,7 @@ class _LicenceKeyState extends State<LicenceKey> {
                         margin:
                             EdgeInsets.only(left: w * 0.03, right: w * 0.03),
                         child: TextFormField(
-                          controller: key_controller,
+                          controller: licence_controller,
                           decoration: InputDecoration(
                             hintText: "Enter Licence key",
                           ),
@@ -102,7 +103,7 @@ class _LicenceKeyState extends State<LicenceKey> {
                       ),
                       child: Center(
                         child: Text(
-                          "Submits",
+                          "Submit",
                           style: MunshiStyle().style24whitew600(),
                         ),
                       ),
