@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vehicle_master/Comman%20components/TextStyle.dart';
 import 'package:vehicle_master/Comman%20components/colors.dart';
+import 'package:vehicle_master/Screens/Add.dart';
+import 'package:vehicle_master/Screens/CompanyDetails.dart';
+import 'package:vehicle_master/Screens/EditProfile.dart';
 import 'package:vehicle_master/Screens/FAQs.dart';
 import 'package:vehicle_master/Screens/Home.dart';
+import 'package:vehicle_master/Screens/ShowVehicleInfo.dart';
 import 'package:vehicle_master/Screens/login.dart';
 
 class HomePage extends StatefulWidget {
@@ -82,57 +86,71 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.only(top: h * 0.02),
                   child: Row(
                     children: [
-                      Container(
-                        height: h * 0.16,
-                        width: w * 0.44,
-                        color: MunshiColor().munshiWhite,
-                        margin: EdgeInsets.only(left: w * 0.04),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Icon(
-                                  Icons.car_rental,
-                                  color: Colors.orange,
-                                  size: 40,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ShowVehicleInfo()));
+                        },
+                        child: Container(
+                          height: h * 0.16,
+                          width: w * 0.44,
+                          color: MunshiColor().munshiWhite,
+                          margin: EdgeInsets.only(left: w * 0.04),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Icon(
+                                    Icons.car_rental,
+                                    color: Colors.orange,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Text(
-                                  "Show Vehicle Info",
-                                  style: MunshiStyle().style20blackw600(),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Text(
+                                    "Show Vehicle Info",
+                                    style: MunshiStyle().style20blackw600(),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        height: h * 0.16,
-                        width: w * 0.44,
-                        color: MunshiColor().munshiWhite,
-                        margin: EdgeInsets.only(left: w * 0.04),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Icon(
-                                  Icons.car_repair,
-                                  color: Colors.blueAccent,
-                                  size: 40,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Add()));
+                        },
+                        child: Container(
+                          height: h * 0.16,
+                          width: w * 0.44,
+                          color: MunshiColor().munshiWhite,
+                          margin: EdgeInsets.only(left: w * 0.04),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Icon(
+                                    Icons.car_repair,
+                                    color: Colors.blueAccent,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Text(
-                                  "Add Vehicle Info",
-                                  style: MunshiStyle().style20blackw600(),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Text(
+                                    "Add Vehicle Info",
+                                    style: MunshiStyle().style20blackw600(),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -143,57 +161,73 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.only(top: h * 0.02),
                   child: Row(
                     children: [
-                      Container(
-                        height: h * 0.16,
-                        width: w * 0.44,
-                        color: MunshiColor().munshiWhite,
-                        margin: EdgeInsets.only(left: w * 0.04),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Icon(
-                                  Icons.details_outlined,
-                                  color: Colors.greenAccent,
-                                  size: 40,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EditProfile()));
+                        },
+                        child: Container(
+                          height: h * 0.16,
+                          width: w * 0.44,
+                          color: MunshiColor().munshiWhite,
+                          margin: EdgeInsets.only(left: w * 0.04),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Icon(
+                                    Icons.details_outlined,
+                                    color: Colors.greenAccent,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Text(
-                                  "Personal Details",
-                                  style: MunshiStyle().style20blackw600(),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Text(
+                                    "Personal Details",
+                                    style: MunshiStyle().style20blackw600(),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        height: h * 0.16,
-                        width: w * 0.44,
-                        color: MunshiColor().munshiWhite,
-                        margin: EdgeInsets.only(left: w * 0.04),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Icon(
-                                  Icons.stars,
-                                  color: Colors.redAccent,
-                                  size: 40,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CompanyDetails()));
+                        },
+                        child: Container(
+                          height: h * 0.16,
+                          width: w * 0.44,
+                          color: MunshiColor().munshiWhite,
+                          margin: EdgeInsets.only(left: w * 0.04),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Icon(
+                                    Icons.stars,
+                                    color: Colors.redAccent,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Text(
-                                  "Company Details",
-                                  style: MunshiStyle().style20blackw600(),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Text(
+                                    "Company Details",
+                                    style: MunshiStyle().style20blackw600(),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
