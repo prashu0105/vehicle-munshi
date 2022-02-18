@@ -7,7 +7,9 @@ import 'package:vehicle_master/Screens/CompanyDetails.dart';
 import 'package:vehicle_master/Screens/EditProfile.dart';
 import 'package:vehicle_master/Screens/FAQs.dart';
 import 'package:vehicle_master/Screens/Home.dart';
+import 'package:vehicle_master/Screens/PrivacyPolicy.dart';
 import 'package:vehicle_master/Screens/ShowVehicleInfo.dart';
+import 'package:vehicle_master/Screens/Term&Condition.dart';
 import 'package:vehicle_master/Screens/login.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,7 +26,195 @@ class _HomePageState extends State<HomePage> {
     var w = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        drawer: NavigationDrawerWidget(context),
+        drawer: Drawer(
+            child: Material(
+          color: MunshiColor().munshiWhite,
+          child: ListView(
+            children: [
+              Container(
+                  height: MediaQuery.of(context).size.height * 0.2,
+                  color: MunshiColor().munshiBlue,
+                  child: Row(
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.width * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        margin: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * 0.04),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: MunshiColor().munshiWhite,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * 0.08,
+                            top: MediaQuery.of(context).size.height * 0.06),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Name here",
+                              style: MunshiStyle().style16whitew400(),
+                            ),
+                            Text(
+                              "Mobile Number here",
+                              style: MunshiStyle().style16whitew400(),
+                            ),
+                            Text(
+                              "Location here",
+                              style: MunshiStyle().style16whitew400(),
+                            ),
+                            Text(
+                              "Licence key here",
+                              style: MunshiStyle().style16whitew400(),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  )),
+              ListTile(
+                leading: Icon(
+                  Icons.home,
+                  color: MunshiColor().munshiBlue,
+                ),
+                title: Text(
+                  "Home",
+                  style: MunshiStyle().style20blackw600(),
+                ),
+                onTap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.support,
+                  color: MunshiColor().munshiBlue,
+                ),
+                title: Text(
+                  "Support",
+                  style: MunshiStyle().style20blackw600(),
+                ),
+                onTap: () {
+                  var radiovalue = "email";
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Container(
+                          child: AlertDialog(
+                            title: Text('Support Via'),
+                            content: StatefulBuilder(builder:
+                                (BuildContext context, StateSetter myState) {
+                              return Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.17,
+                                width: MediaQuery.of(context).size.height * 0.2,
+                                child: Column(
+                                  children: [
+                                    RadioListTile(
+                                        title: Text("Email "),
+                                        value: "email",
+                                        groupValue: radiovalue,
+                                        onChanged: (value) {
+                                          myState(() {
+                                            radiovalue = value.toString();
+                                          });
+                                        }),
+                                    RadioListTile(
+                                        title: Text("Phone"),
+                                        value: "phone",
+                                        groupValue: radiovalue,
+                                        onChanged: (value) {
+                                          myState(() {
+                                            radiovalue = value.toString();
+                                          });
+                                        }),
+                                  ],
+                                ),
+                              );
+                            }),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  if (radiovalue == "email") {
+                                    print("Email");
+                                  } else if (radiovalue == "phone") {
+                                    print("phone");
+                                  } else {
+                                    print("Nothing");
+                                  }
+                                },
+                                child: Text('Ok'),
+                              )
+                            ],
+                          ),
+                        );
+                      });
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.live_help_outlined,
+                  color: MunshiColor().munshiBlue,
+                ),
+                title: Text(
+                  "FAQs",
+                  style: MunshiStyle().style20blackw600(),
+                ),
+                onTap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => FAQ()));
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.privacy_tip,
+                  color: MunshiColor().munshiBlue,
+                ),
+                title: Text(
+                  "Privacy Policy",
+                  style: MunshiStyle().style20blackw600(),
+                ),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PrivacyPolicy()));
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.description_outlined,
+                  color: MunshiColor().munshiBlue,
+                ),
+                title: Text(
+                  "Terms & Conditions",
+                  style: MunshiStyle().style20blackw600(),
+                ),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => TermandConditions()));
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.logout,
+                  color: MunshiColor().munshiBlue,
+                ),
+                title: Text(
+                  "Logout",
+                  style: MunshiStyle().style20blackw600(),
+                ),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Login()));
+                },
+              ),
+            ],
+          ),
+        )),
         appBar: AppBar(
           backgroundColor: MunshiColor().munshiBlue,
           centerTitle: true,
@@ -123,8 +313,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Add()));
+                          // Navigator.push(context,
+                          //     MaterialPageRoute(builder: (context) => Add()));
                         },
                         child: Container(
                           height: h * 0.16,
@@ -163,10 +353,10 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       InkWell(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => EditProfile()));
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => EditProfile()));
                         },
                         child: Container(
                           height: h * 0.16,
@@ -198,10 +388,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => CompanyDetails()));
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => CompanyDetails()));
                         },
                         child: Container(
                           height: h * 0.16,
@@ -575,7 +765,48 @@ Widget NavigationDrawerWidget(context) {
             "Support",
             style: MunshiStyle().style20blackw600(),
           ),
-          onTap: () {},
+          onTap: () {
+            var radiovalue = "email";
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return Container(
+                    child: AlertDialog(
+                      title: Text('Support Via'),
+                      content: Container(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: MediaQuery.of(context).size.height * 0.2,
+                        child: Column(
+                          children: [
+                            RadioListTile(
+                                title: Text("Email "),
+                                value: "email",
+                                groupValue: radiovalue,
+                                onChanged: (value) {
+                                  radiovalue = value.toString();
+                                }),
+                            RadioListTile(
+                                title: Text("Phone"),
+                                value: "phone",
+                                groupValue: radiovalue,
+                                onChanged: (value) {
+                                  radiovalue = value.toString();
+                                }),
+                          ],
+                        ),
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            print('HelloWorld!');
+                          },
+                          child: Text('Ok'),
+                        )
+                      ],
+                    ),
+                  );
+                });
+          },
         ),
         ListTile(
           leading: Icon(
@@ -600,7 +831,10 @@ Widget NavigationDrawerWidget(context) {
             "Privacy Policy",
             style: MunshiStyle().style20blackw600(),
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => PrivacyPolicy()));
+          },
         ),
         ListTile(
           leading: Icon(
@@ -611,7 +845,10 @@ Widget NavigationDrawerWidget(context) {
             "Terms & Conditions",
             style: MunshiStyle().style20blackw600(),
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => TermandConditions()));
+          },
         ),
         ListTile(
           leading: Icon(
