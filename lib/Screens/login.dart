@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'dart:developer';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:vehicle_master/Comman%20components/TextStyle.dart';
@@ -16,6 +20,47 @@ class _LoginState extends State<Login> {
   var h, w;
   var _formKey = GlobalKey<FormState>();
   TextEditingController phone_controller = new TextEditingController();
+  var state, logindata, otp;
+  doLogin() async {
+    state = 'loading';
+    setState(() {});
+    try {
+      Dio dio = new Dio();
+      FormData formData = FormData.fromMap({
+        "customer_number": "${phone_controller.text}",
+      });
+
+      await dio
+          .post("http://www.techtradedu.com/vehicle-munshi/api/send_otp_mobile",
+              data: formData)
+          .then((value) {
+        logindata = json.decode(value.toString());
+        otp = logindata['otp'];
+      });
+      log(jsonEncode(logindata));
+      if (logindata['success'].toString() == "true") {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("${logindata['message']}"),
+            backgroundColor: Colors.green,
+          ),
+        );
+        Navigator.push(context, MaterialPageRoute(builder: (context) => OTP()));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("${logindata['message']}"),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } catch (e) {
+      log("Error $e");
+    }
+    state = 'buttonPress';
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     h = MediaQuery.of(context).size.height;
@@ -92,25 +137,33 @@ class _LoginState extends State<Login> {
                     InkWell(
                       onTap: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => OTP()));
+                          doLogin();
+                          // Navigator.push(context,
+                          //     MaterialPageRoute(builder: (context) => OTP()));
                         }
                       },
-                      child: Container(
-                        height: h * 0.06,
-                        width: w * 0.8,
-                        margin: EdgeInsets.only(top: h * 0.05),
-                        decoration: BoxDecoration(
-                          color: MunshiColor().munshiBlue,
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Get an OTP",
-                            style: MunshiStyle().style24whitew600(),
-                          ),
-                        ),
-                      ),
+                      child: state == 'loading'
+                          ? Center(
+                              child: CircularProgressIndicator(
+                                color: MunshiColor().munshiBlue,
+                              ),
+                            )
+                          : Container(
+                              height: h * 0.06,
+                              width: w * 0.8,
+                              margin: EdgeInsets.only(top: h * 0.05),
+                              decoration: BoxDecoration(
+                                color: MunshiColor().munshiBlue,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12)),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Get an OTP",
+                                  style: MunshiStyle().style24whitew600(),
+                                ),
+                              ),
+                            ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: h * 0.020),

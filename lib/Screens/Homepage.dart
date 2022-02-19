@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                                     print("Nothing");
                                   }
                                 },
-                                child: Text('Ok'),
+                                child: Text('OK'),
                               )
                             ],
                           ),
@@ -313,8 +313,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                       InkWell(
                         onTap: () {
-                          // Navigator.push(context,
-                          //     MaterialPageRoute(builder: (context) => Add()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Add(
+                                        backbutton: true,
+                                      )));
                         },
                         child: Container(
                           height: h * 0.16,
@@ -693,178 +697,178 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-Widget NavigationDrawerWidget(context) {
-  return Drawer(
-      child: Material(
-    color: MunshiColor().munshiWhite,
-    child: ListView(
-      children: [
-        Container(
-            height: MediaQuery.of(context).size.height * 0.2,
-            color: MunshiColor().munshiBlue,
-            child: Row(
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.width * 0.2,
-                  width: MediaQuery.of(context).size.width * 0.2,
-                  margin: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width * 0.04),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: MunshiColor().munshiWhite,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width * 0.08,
-                      top: MediaQuery.of(context).size.height * 0.06),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Name here",
-                        style: MunshiStyle().style16whitew400(),
-                      ),
-                      Text(
-                        "Mobile Number here",
-                        style: MunshiStyle().style16whitew400(),
-                      ),
-                      Text(
-                        "Location here",
-                        style: MunshiStyle().style16whitew400(),
-                      ),
-                      Text(
-                        "Licence key here",
-                        style: MunshiStyle().style16whitew400(),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            )),
-        ListTile(
-          leading: Icon(
-            Icons.home,
-            color: MunshiColor().munshiBlue,
-          ),
-          title: Text(
-            "Home",
-            style: MunshiStyle().style20blackw600(),
-          ),
-          onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Home()));
-          },
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.support,
-            color: MunshiColor().munshiBlue,
-          ),
-          title: Text(
-            "Support",
-            style: MunshiStyle().style20blackw600(),
-          ),
-          onTap: () {
-            var radiovalue = "email";
-            showDialog(
-                context: context,
-                builder: (context) {
-                  return Container(
-                    child: AlertDialog(
-                      title: Text('Support Via'),
-                      content: Container(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.height * 0.2,
-                        child: Column(
-                          children: [
-                            RadioListTile(
-                                title: Text("Email "),
-                                value: "email",
-                                groupValue: radiovalue,
-                                onChanged: (value) {
-                                  radiovalue = value.toString();
-                                }),
-                            RadioListTile(
-                                title: Text("Phone"),
-                                value: "phone",
-                                groupValue: radiovalue,
-                                onChanged: (value) {
-                                  radiovalue = value.toString();
-                                }),
-                          ],
-                        ),
-                      ),
-                      actions: <Widget>[
-                        TextButton(
-                          onPressed: () {
-                            print('HelloWorld!');
-                          },
-                          child: Text('Ok'),
-                        )
-                      ],
-                    ),
-                  );
-                });
-          },
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.live_help_outlined,
-            color: MunshiColor().munshiBlue,
-          ),
-          title: Text(
-            "FAQs",
-            style: MunshiStyle().style20blackw600(),
-          ),
-          onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => FAQ()));
-          },
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.privacy_tip,
-            color: MunshiColor().munshiBlue,
-          ),
-          title: Text(
-            "Privacy Policy",
-            style: MunshiStyle().style20blackw600(),
-          ),
-          onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => PrivacyPolicy()));
-          },
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.description_outlined,
-            color: MunshiColor().munshiBlue,
-          ),
-          title: Text(
-            "Terms & Conditions",
-            style: MunshiStyle().style20blackw600(),
-          ),
-          onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => TermandConditions()));
-          },
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.logout,
-            color: MunshiColor().munshiBlue,
-          ),
-          title: Text(
-            "Logout",
-            style: MunshiStyle().style20blackw600(),
-          ),
-          onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Login()));
-          },
-        ),
-      ],
-    ),
-  ));
-}
+// Widget NavigationDrawerWidget(context) {
+//   return Drawer(
+//       child: Material(
+//     color: MunshiColor().munshiWhite,
+//     child: ListView(
+//       children: [
+//         Container(
+//             height: MediaQuery.of(context).size.height * 0.2,
+//             color: MunshiColor().munshiBlue,
+//             child: Row(
+//               children: [
+//                 Container(
+//                   height: MediaQuery.of(context).size.width * 0.2,
+//                   width: MediaQuery.of(context).size.width * 0.2,
+//                   margin: EdgeInsets.only(
+//                       left: MediaQuery.of(context).size.width * 0.04),
+//                   decoration: BoxDecoration(
+//                     shape: BoxShape.circle,
+//                     color: MunshiColor().munshiWhite,
+//                   ),
+//                 ),
+//                 Padding(
+//                   padding: EdgeInsets.only(
+//                       left: MediaQuery.of(context).size.width * 0.08,
+//                       top: MediaQuery.of(context).size.height * 0.06),
+//                   child: Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: [
+//                       Text(
+//                         "Name here",
+//                         style: MunshiStyle().style16whitew400(),
+//                       ),
+//                       Text(
+//                         "Mobile Number here",
+//                         style: MunshiStyle().style16whitew400(),
+//                       ),
+//                       Text(
+//                         "Location here",
+//                         style: MunshiStyle().style16whitew400(),
+//                       ),
+//                       Text(
+//                         "Licence key here",
+//                         style: MunshiStyle().style16whitew400(),
+//                       ),
+//                     ],
+//                   ),
+//                 )
+//               ],
+//             )),
+//         ListTile(
+//           leading: Icon(
+//             Icons.home,
+//             color: MunshiColor().munshiBlue,
+//           ),
+//           title: Text(
+//             "Home",
+//             style: MunshiStyle().style20blackw600(),
+//           ),
+//           onTap: () {
+//             Navigator.push(
+//                 context, MaterialPageRoute(builder: (context) => Home()));
+//           },
+//         ),
+//         ListTile(
+//           leading: Icon(
+//             Icons.support,
+//             color: MunshiColor().munshiBlue,
+//           ),
+//           title: Text(
+//             "Support",
+//             style: MunshiStyle().style20blackw600(),
+//           ),
+//           onTap: () {
+//             var radiovalue = "email";
+//             showDialog(
+//                 context: context,
+//                 builder: (context) {
+//                   return Container(
+//                     child: AlertDialog(
+//                       title: Text('Support Via'),
+//                       content: Container(
+//                         height: MediaQuery.of(context).size.height * 0.2,
+//                         width: MediaQuery.of(context).size.height * 0.2,
+//                         child: Column(
+//                           children: [
+//                             RadioListTile(
+//                                 title: Text("Email "),
+//                                 value: "email",
+//                                 groupValue: radiovalue,
+//                                 onChanged: (value) {
+//                                   radiovalue = value.toString();
+//                                 }),
+//                             RadioListTile(
+//                                 title: Text("Phone"),
+//                                 value: "phone",
+//                                 groupValue: radiovalue,
+//                                 onChanged: (value) {
+//                                   radiovalue = value.toString();
+//                                 }),
+//                           ],
+//                         ),
+//                       ),
+//                       actions: <Widget>[
+//                         TextButton(
+//                           onPressed: () {
+//                             print('HelloWorld!');
+//                           },
+//                           child: Text('Ok'),
+//                         )
+//                       ],
+//                     ),
+//                   );
+//                 });
+//           },
+//         ),
+//         ListTile(
+//           leading: Icon(
+//             Icons.live_help_outlined,
+//             color: MunshiColor().munshiBlue,
+//           ),
+//           title: Text(
+//             "FAQs",
+//             style: MunshiStyle().style20blackw600(),
+//           ),
+//           onTap: () {
+//             Navigator.push(
+//                 context, MaterialPageRoute(builder: (context) => FAQ()));
+//           },
+//         ),
+//         ListTile(
+//           leading: Icon(
+//             Icons.privacy_tip,
+//             color: MunshiColor().munshiBlue,
+//           ),
+//           title: Text(
+//             "Privacy Policy",
+//             style: MunshiStyle().style20blackw600(),
+//           ),
+//           onTap: () {
+//             Navigator.push(context,
+//                 MaterialPageRoute(builder: (context) => PrivacyPolicy()));
+//           },
+//         ),
+//         ListTile(
+//           leading: Icon(
+//             Icons.description_outlined,
+//             color: MunshiColor().munshiBlue,
+//           ),
+//           title: Text(
+//             "Terms & Conditions",
+//             style: MunshiStyle().style20blackw600(),
+//           ),
+//           onTap: () {
+//             Navigator.push(context,
+//                 MaterialPageRoute(builder: (context) => TermandConditions()));
+//           },
+//         ),
+//         ListTile(
+//           leading: Icon(
+//             Icons.logout,
+//             color: MunshiColor().munshiBlue,
+//           ),
+//           title: Text(
+//             "Logout",
+//             style: MunshiStyle().style20blackw600(),
+//           ),
+//           onTap: () {
+//             Navigator.push(
+//                 context, MaterialPageRoute(builder: (context) => Login()));
+//           },
+//         ),
+//       ],
+//     ),
+//   ));
+// }

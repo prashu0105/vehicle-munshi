@@ -3,7 +3,8 @@ import 'package:vehicle_master/Comman%20components/TextStyle.dart';
 import 'package:vehicle_master/Comman%20components/colors.dart';
 
 class Add extends StatefulWidget {
-  const Add({Key? key}) : super(key: key);
+  bool backbutton;
+  Add({Key? key, required this.backbutton}) : super(key: key);
 
   @override
   State<Add> createState() => _AddState();
@@ -13,13 +14,32 @@ class _AddState extends State<Add> {
   var h, w;
   var vehiclelist = ["Car", "Bike", "Truck", "Bus", "Tempo"];
   var _chosenValue;
+  var backButton;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    backButton = widget.backbutton;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     h = MediaQuery.of(context).size.height;
     w = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        leading: backButton
+            ? IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              )
+            : Icon(
+                Icons.arrow_back_ios,
+                color: MunshiColor().munshiBlue,
+              ),
         backgroundColor: MunshiColor().munshiBlue,
         centerTitle: true,
         title: Text('Add Vehicle Info'),
@@ -30,7 +50,7 @@ class _AddState extends State<Add> {
         ),
       ),
       body: Container(
-        height: h * 0.84,
+        height: backButton ? h * 0.9 : h * 0.84,
         width: w,
         color: MunshiColor().munshiCreme,
         child: Column(children: [
