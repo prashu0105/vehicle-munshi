@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vehicle_master/Comman%20components/TextStyle.dart';
 import 'package:vehicle_master/Comman%20components/colors.dart';
 import 'package:vehicle_master/Screens/Add.dart';
@@ -7,6 +8,8 @@ import 'package:vehicle_master/Screens/CompanyDetails.dart';
 import 'package:vehicle_master/Screens/EditProfile.dart';
 import 'package:vehicle_master/Screens/FAQs.dart';
 import 'package:vehicle_master/Screens/Home.dart';
+import 'package:vehicle_master/Screens/Insurance.dart';
+import 'package:vehicle_master/Screens/License.dart';
 import 'package:vehicle_master/Screens/PrivacyPolicy.dart';
 import 'package:vehicle_master/Screens/ShowVehicleInfo.dart';
 import 'package:vehicle_master/Screens/Term&Condition.dart';
@@ -137,11 +140,21 @@ class _HomePageState extends State<HomePage> {
                             }),
                             actions: <Widget>[
                               TextButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   if (radiovalue == "email") {
-                                    print("Email");
+                                    final email = 'hr@infiniteeclick.com';
+                                    final url =
+                                        'mailto:$email?subject=This is Subject Title&body=This is Body of Email';
+                                    if (await canLaunch(url)) {
+                                      await launch(url);
+                                    }
                                   } else if (radiovalue == "phone") {
-                                    print("phone");
+                                    final phonenumber = 7441144440;
+                                    final url = 'tel:$phonenumber';
+
+                                    if (await canLaunch(url)) {
+                                      await launch(url);
+                                    }
                                   } else {
                                     print("Nothing");
                                   }
@@ -357,10 +370,10 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => EditProfile()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EditProfile()));
                         },
                         child: Container(
                           height: h * 0.16,
@@ -392,10 +405,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                       InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => CompanyDetails()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CompanyDetails()));
                         },
                         child: Container(
                           height: h * 0.16,
@@ -439,57 +452,73 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.only(top: h * 0.02),
                   child: Row(
                     children: [
-                      Container(
-                        height: h * 0.16,
-                        width: w * 0.44,
-                        color: MunshiColor().munshiWhite,
-                        margin: EdgeInsets.only(left: w * 0.04),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Icon(
-                                  Icons.security_rounded,
-                                  color: Colors.amber,
-                                  size: 40,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => License()));
+                        },
+                        child: Container(
+                          height: h * 0.16,
+                          width: w * 0.44,
+                          color: MunshiColor().munshiWhite,
+                          margin: EdgeInsets.only(left: w * 0.04),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Icon(
+                                    Icons.security_rounded,
+                                    color: Colors.amber,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Text(
-                                  "License",
-                                  style: MunshiStyle().style20blackw600(),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Text(
+                                    "License",
+                                    style: MunshiStyle().style20blackw600(),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        height: h * 0.16,
-                        width: w * 0.44,
-                        color: MunshiColor().munshiWhite,
-                        margin: EdgeInsets.only(left: w * 0.04),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Icon(
-                                  Icons.info,
-                                  color: Colors.red,
-                                  size: 40,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Insurance()));
+                        },
+                        child: Container(
+                          height: h * 0.16,
+                          width: w * 0.44,
+                          color: MunshiColor().munshiWhite,
+                          margin: EdgeInsets.only(left: w * 0.04),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Icon(
+                                    Icons.info,
+                                    color: Colors.red,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Text(
-                                  "Insurance",
-                                  style: MunshiStyle().style20blackw600(),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Text(
+                                    "Insurance",
+                                    style: MunshiStyle().style20blackw600(),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),

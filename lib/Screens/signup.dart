@@ -336,9 +336,9 @@ class _SignUpState extends State<SignUp> {
                   InkWell(
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
-                        doSignup();
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) => Login()));
+                        // doSignup();
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Login()));
                       }
                     },
                     child: state == "loading"

@@ -73,7 +73,7 @@ class _LicenceKeyState extends State<LicenceKey> {
                           decoration: InputDecoration(
                             hintText: "Enter Licence key",
                           ),
-                          keyboardType: TextInputType.number,
+                          keyboardType: TextInputType.name,
                           validator: (value) {
                             if (value!.length != 10)
                               return 'Licence key must be of 10 digit';

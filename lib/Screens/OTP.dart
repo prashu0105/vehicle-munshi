@@ -74,7 +74,7 @@ class _OTPState extends State<OTP> {
                           decoration: InputDecoration(
                             hintText: "Enter OTP",
                           ),
-                          keyboardType: TextInputType.phone,
+                          keyboardType: TextInputType.number,
                           validator: (value) {
                             if (value!.length != 4)
                               return 'OTP must be of 4 digit';

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -61,6 +61,8 @@ class _LoginState extends State<Login> {
     setState(() {});
   }
 
+  launchphone() {}
+
   @override
   Widget build(BuildContext context) {
     h = MediaQuery.of(context).size.height;
@@ -80,6 +82,18 @@ class _LoginState extends State<Login> {
                 bottom: Radius.circular(25),
               ),
             ),
+            actions: [
+              IconButton(
+                  onPressed: () async {
+                    final phonenumber = 7441144440;
+                    final url = 'tel:$phonenumber';
+
+                    if (await canLaunch(url)) {
+                      await launch(url);
+                    }
+                  },
+                  icon: Icon(Icons.credit_card)),
+            ],
           ),
           body: Form(
             key: _formKey,
@@ -137,9 +151,9 @@ class _LoginState extends State<Login> {
                     InkWell(
                       onTap: () {
                         if (_formKey.currentState!.validate()) {
-                          doLogin();
-                          // Navigator.push(context,
-                          //     MaterialPageRoute(builder: (context) => OTP()));
+                          // doLogin();
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => OTP()));
                         }
                       },
                       child: state == 'loading'
