@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:vehicle_master/Comman%20components/TextStyle.dart';
 import 'package:vehicle_master/Comman%20components/colors.dart';
 import 'package:vehicle_master/Screens/Insurance.dart';
+import 'package:vehicle_master/Screens/LightNewInsurance.dart';
+import 'package:vehicle_master/Screens/LightRenewInsurance.dart';
 
 class LightMotorVehicle extends StatefulWidget {
   LightMotorVehicle({Key? key}) : super(key: key);
@@ -87,11 +89,15 @@ class _LightMotorVehicleState extends State<LightMotorVehicle> {
             InkWell(
               onTap: () {
                 if (radiovalue == "New") {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => NewLicense()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LightNewInsurance()));
                 } else if (radiovalue == "Renew") {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => RenewLicense()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LightRenewInsurance()));
                 } else {}
               },
               child: Center(

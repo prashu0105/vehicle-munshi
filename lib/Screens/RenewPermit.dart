@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_master/Comman%20components/TextStyle.dart';
 import 'package:vehicle_master/Comman%20components/colors.dart';
-import 'package:vehicle_master/Screens/LightMotorVehicleInsurance.dart';
+import 'package:vehicle_master/Screens/Permit.dart';
 
-class LightNewInsurance extends StatefulWidget {
-  LightNewInsurance({Key? key}) : super(key: key);
+class RenewPermit extends StatefulWidget {
+  RenewPermit({Key? key}) : super(key: key);
 
   @override
-  State<LightNewInsurance> createState() => _LightNewInsuranceState();
+  State<RenewPermit> createState() => _RenewPermitState();
 }
 
-class _LightNewInsuranceState extends State<LightNewInsurance> {
+class _RenewPermitState extends State<RenewPermit> {
   var h, w;
   var _formKey = GlobalKey<FormState>();
   TextEditingController name_controller = new TextEditingController();
@@ -27,13 +27,13 @@ class _LightNewInsuranceState extends State<LightNewInsurance> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => LightMotorVehicle()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Permit()));
           },
         ),
         backgroundColor: MunshiColor().munshiBlue,
         centerTitle: true,
-        title: Text('New Insurance Details'),
+        title: Text('Renew Permit Details'),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(25),

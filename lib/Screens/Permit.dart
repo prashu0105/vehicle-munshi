@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_master/Comman%20components/TextStyle.dart';
 import 'package:vehicle_master/Comman%20components/colors.dart';
-import 'package:vehicle_master/Screens/HeavyRenewInsurance.dart';
-import 'package:vehicle_master/Screens/Insurance.dart';
-import 'package:vehicle_master/Screens/LightNewInsurance.dart';
+import 'package:vehicle_master/Screens/NewPermit.dart';
+import 'package:vehicle_master/Screens/RenewPermit.dart';
 
-class HeavyMotorVehicle extends StatefulWidget {
-  HeavyMotorVehicle({Key? key}) : super(key: key);
+class Permit extends StatefulWidget {
+  Permit({Key? key}) : super(key: key);
 
   @override
-  State<HeavyMotorVehicle> createState() => _HeavyMotorVehicleState();
+  State<Permit> createState() => _PermitState();
 }
 
-class _HeavyMotorVehicleState extends State<HeavyMotorVehicle> {
+class _PermitState extends State<Permit> {
   var h, w;
   var radiovalue = "New";
   @override
@@ -24,13 +23,12 @@ class _HeavyMotorVehicleState extends State<HeavyMotorVehicle> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Insurance()));
+            Navigator.pop(context);
           },
         ),
         backgroundColor: MunshiColor().munshiBlue,
         centerTitle: true,
-        title: Text('Heavy Motor Insurance'),
+        title: Text('Permit'),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(25),
@@ -64,7 +62,7 @@ class _HeavyMotorVehicleState extends State<HeavyMotorVehicle> {
                   children: [
                     RadioListTile(
                         activeColor: MunshiColor().munshiBlue,
-                        title: Text("Apply for New Insurance"),
+                        title: Text("Apply for New Permit"),
                         tileColor: MunshiColor().munshiBlue,
                         value: "New",
                         groupValue: radiovalue,
@@ -75,7 +73,7 @@ class _HeavyMotorVehicleState extends State<HeavyMotorVehicle> {
                         }),
                     RadioListTile(
                         activeColor: MunshiColor().munshiBlue,
-                        title: Text("Renew Insurance"),
+                        title: Text("Renew Permit"),
                         tileColor: MunshiColor().munshiBlue,
                         value: "Renew",
                         groupValue: radiovalue,
@@ -89,15 +87,11 @@ class _HeavyMotorVehicleState extends State<HeavyMotorVehicle> {
             InkWell(
               onTap: () {
                 if (radiovalue == "New") {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => LightNewInsurance()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => NewPermit()));
                 } else if (radiovalue == "Renew") {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => HeavyRenewInsurance()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => RenewPermit()));
                 } else {}
               },
               child: Center(

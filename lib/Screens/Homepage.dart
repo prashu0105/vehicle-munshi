@@ -10,8 +10,10 @@ import 'package:vehicle_master/Screens/FAQs.dart';
 import 'package:vehicle_master/Screens/Home.dart';
 import 'package:vehicle_master/Screens/Insurance.dart';
 import 'package:vehicle_master/Screens/License.dart';
+import 'package:vehicle_master/Screens/Permit.dart';
 import 'package:vehicle_master/Screens/PrivacyPolicy.dart';
 import 'package:vehicle_master/Screens/ShowVehicleInfo.dart';
+import 'package:vehicle_master/Screens/Taxes.dart';
 import 'package:vehicle_master/Screens/Term&Condition.dart';
 import 'package:vehicle_master/Screens/login.dart';
 
@@ -529,57 +531,71 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.only(top: h * 0.02),
                   child: Row(
                     children: [
-                      Container(
-                        height: h * 0.16,
-                        width: w * 0.44,
-                        color: MunshiColor().munshiWhite,
-                        margin: EdgeInsets.only(left: w * 0.04),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Icon(
-                                  Icons.perm_scan_wifi_outlined,
-                                  color: Colors.purpleAccent,
-                                  size: 40,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Permit()));
+                        },
+                        child: Container(
+                          height: h * 0.16,
+                          width: w * 0.44,
+                          color: MunshiColor().munshiWhite,
+                          margin: EdgeInsets.only(left: w * 0.04),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Icon(
+                                    Icons.perm_scan_wifi_outlined,
+                                    color: Colors.purpleAccent,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Text(
-                                  "Permit",
-                                  style: MunshiStyle().style20blackw600(),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Text(
+                                    "Permit",
+                                    style: MunshiStyle().style20blackw600(),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        height: h * 0.16,
-                        width: w * 0.44,
-                        color: MunshiColor().munshiWhite,
-                        margin: EdgeInsets.only(left: w * 0.04),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Icon(
-                                  Icons.password_outlined,
-                                  color: Colors.green,
-                                  size: 40,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Taxes()));
+                        },
+                        child: Container(
+                          height: h * 0.16,
+                          width: w * 0.44,
+                          color: MunshiColor().munshiWhite,
+                          margin: EdgeInsets.only(left: w * 0.04),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Icon(
+                                    Icons.password_outlined,
+                                    color: Colors.green,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Text(
-                                  "Taxes",
-                                  style: MunshiStyle().style20blackw600(),
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Text(
+                                    "Taxes",
+                                    style: MunshiStyle().style20blackw600(),
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),

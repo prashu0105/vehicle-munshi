@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_master/Comman%20components/TextStyle.dart';
 import 'package:vehicle_master/Comman%20components/colors.dart';
-import 'package:vehicle_master/Screens/LightMotorVehicleInsurance.dart';
+import 'package:vehicle_master/Screens/HeavyMotorVehicleInsurance.dart';
 
-class LightNewInsurance extends StatefulWidget {
-  LightNewInsurance({Key? key}) : super(key: key);
+class HeavyNewInsurance extends StatefulWidget {
+  HeavyNewInsurance({Key? key}) : super(key: key);
 
   @override
-  State<LightNewInsurance> createState() => _LightNewInsuranceState();
+  State<HeavyNewInsurance> createState() => _HeavyNewInsuranceState();
 }
 
-class _LightNewInsuranceState extends State<LightNewInsurance> {
+class _HeavyNewInsuranceState extends State<HeavyNewInsurance> {
   var h, w;
   var _formKey = GlobalKey<FormState>();
   TextEditingController name_controller = new TextEditingController();
@@ -28,7 +28,7 @@ class _LightNewInsuranceState extends State<LightNewInsurance> {
           icon: Icon(Icons.arrow_back_ios),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => LightMotorVehicle()));
+                MaterialPageRoute(builder: (context) => HeavyMotorVehicle()));
           },
         ),
         backgroundColor: MunshiColor().munshiBlue,
