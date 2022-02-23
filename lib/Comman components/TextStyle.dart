@@ -100,4 +100,22 @@ class MunshiStyle {
       color: MunshiColor().munshiBlue,
     );
   }
+
+  style12bluew400() {
+    // ignore: prefer_const_constructors
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: 12,
+      color: MunshiColor().munshiBlue,
+    );
+  }
+
+  style12blackw400() {
+    // ignore: prefer_const_constructors
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: 12,
+      color: MunshiColor().munshiBlack,
+    );
+  }
 }

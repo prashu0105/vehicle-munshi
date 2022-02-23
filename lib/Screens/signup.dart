@@ -28,6 +28,7 @@ class _SignUpState extends State<SignUp> {
       new TextEditingController();
   var state;
   var signupdata;
+
   doSignup() async {
     state = 'loading';
     setState(() {});
@@ -73,6 +74,51 @@ class _SignUpState extends State<SignUp> {
     }
     state = 'buttonPress';
     setState(() {});
+  }
+
+  var statedata;
+  getStateList() async {
+    state = 'loading';
+    setState(() {});
+    try {
+      Dio dio = new Dio();
+      FormData formData = FormData.fromMap({});
+
+      await dio
+          .post("http://www.techtradedu.com/vehicle-munshi/api/states",
+              data: formData)
+          .then((value) {
+        statedata = json.decode(value.toString());
+      });
+      log("List of State" + jsonEncode(statedata));
+      if (statedata['status'].toString() == "true") {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("${statedata['msg']}"),
+            backgroundColor: Colors.green,
+          ),
+        );
+        // Navigator.push(
+        //     context, MaterialPageRoute(builder: (context) => Login()));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("${statedata['msg']}"),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } catch (e) {
+      log("Error $e");
+    }
+    state = 'buttonPress';
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    // getStateList();
+    super.initState();
   }
 
   @override
