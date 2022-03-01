@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:vehicle_master/Comman%20components/TextStyle.dart';
 import 'package:vehicle_master/Comman%20components/colors.dart';
+import 'package:vehicle_master/Screens/AddCompanyDetails.dart';
 import 'package:vehicle_master/Screens/login.dart';
 
 class SignUp extends StatefulWidget {
@@ -383,8 +384,10 @@ class _SignUpState extends State<SignUp> {
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
                         // doSignup();
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Login()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddCompanyDetails()));
                       }
                     },
                     child: state == "loading"

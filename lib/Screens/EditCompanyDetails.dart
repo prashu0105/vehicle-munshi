@@ -182,7 +182,7 @@ class _EditCompanyDetailsState extends State<EditCompanyDetails> {
                   children: [
                     Container(
                       margin: EdgeInsets.only(left: w * 0.04, top: h * 0.02),
-                      child: Text("GST Number:",
+                      child: Text("GST Certificate :",
                           style: MunshiStyle().style16blackw400()),
                     ),
                     Center(

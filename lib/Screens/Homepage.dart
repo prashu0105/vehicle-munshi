@@ -12,9 +12,11 @@ import 'package:vehicle_master/Screens/Insurance.dart';
 import 'package:vehicle_master/Screens/License.dart';
 import 'package:vehicle_master/Screens/Permit.dart';
 import 'package:vehicle_master/Screens/PrivacyPolicy.dart';
+import 'package:vehicle_master/Screens/Quiz.dart';
 import 'package:vehicle_master/Screens/ShowVehicleInfo.dart';
 import 'package:vehicle_master/Screens/Taxes.dart';
 import 'package:vehicle_master/Screens/Term&Condition.dart';
+import 'package:vehicle_master/Screens/Trafficrules.dart';
 import 'package:vehicle_master/Screens/login.dart';
 
 class HomePage extends StatefulWidget {
@@ -239,6 +241,18 @@ class _HomePageState extends State<HomePage> {
               bottom: Radius.circular(25),
             ),
           ),
+          actions: [
+            IconButton(
+                onPressed: () async {
+                  final phonenumber = 7441144440;
+                  final url = 'tel:$phonenumber';
+
+                  if (await canLaunch(url)) {
+                    await launch(url);
+                  }
+                },
+                icon: Icon(Icons.credit_card)),
+          ],
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -613,57 +627,69 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.only(top: h * 0.02),
                   child: Row(
                     children: [
-                      Container(
-                        height: h * 0.16,
-                        width: w * 0.44,
-                        color: MunshiColor().munshiWhite,
-                        margin: EdgeInsets.only(left: w * 0.04),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Icon(
-                                  Icons.check_box_outlined,
-                                  color: Colors.indigoAccent,
-                                  size: 40,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => FAQ()));
+                        },
+                        child: Container(
+                          height: h * 0.16,
+                          width: w * 0.44,
+                          color: MunshiColor().munshiWhite,
+                          margin: EdgeInsets.only(left: w * 0.04),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Icon(
+                                    Icons.check_box_outlined,
+                                    color: Colors.indigoAccent,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Text(
-                                  "RTO Related Faqs",
-                                  style: MunshiStyle().style20blackw600(),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Text(
+                                    "RTO Related Faqs",
+                                    style: MunshiStyle().style20blackw600(),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        height: h * 0.16,
-                        width: w * 0.44,
-                        color: MunshiColor().munshiWhite,
-                        margin: EdgeInsets.only(left: w * 0.04),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Icon(
-                                  Icons.info,
-                                  color: Colors.orange,
-                                  size: 40,
+                      InkWell(
+                        onTap: (() {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Quiz()));
+                        }),
+                        child: Container(
+                          height: h * 0.16,
+                          width: w * 0.44,
+                          color: MunshiColor().munshiWhite,
+                          margin: EdgeInsets.only(left: w * 0.04),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Icon(
+                                    Icons.info,
+                                    color: Colors.orange,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Text(
-                                  "RTO Quiz",
-                                  style: MunshiStyle().style20blackw600(),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Text(
+                                    "RTO Quiz",
+                                    style: MunshiStyle().style20blackw600(),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -674,30 +700,38 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.only(top: h * 0.02),
                   child: Row(
                     children: [
-                      Container(
-                        height: h * 0.16,
-                        width: w * 0.44,
-                        color: MunshiColor().munshiWhite,
-                        margin: EdgeInsets.only(left: w * 0.04),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Icon(
-                                  Icons.message_outlined,
-                                  color: Colors.lime,
-                                  size: 40,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TrafficRules()));
+                        },
+                        child: Container(
+                          height: h * 0.16,
+                          width: w * 0.44,
+                          color: MunshiColor().munshiWhite,
+                          margin: EdgeInsets.only(left: w * 0.04),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Icon(
+                                    Icons.message_outlined,
+                                    color: Colors.lime,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: h * 0.02),
-                                child: Text(
-                                  "Traffic Rules",
-                                  style: MunshiStyle().style20blackw600(),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: Text(
+                                    "Traffic Rules",
+                                    style: MunshiStyle().style20blackw600(),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
